@@ -20,6 +20,8 @@ function WP_first_last_username( $user_id )
 {   
     // Get The user first Name + Last Name
     $data = get_userdata( $user_id );
+    if($data->first_name == '' || $data->last_name == '')
+    return ;
     $new_user_name = $data->first_name . $data->last_name;
     // Update the username
     global $wpdb;
